@@ -77,6 +77,11 @@ def samples(sampleid):
     sample_dict['sample_values'] = sample_dict.pop(sampleid)
     return jsonify(sample_dict)
 
+@app.route('/favicon.ico')
+def favicon():
+    return send_from_directory(os.path.join(app.root_path, 'static', 'images'),
+    'favicon.ico', mimetype='image/png')
+
 
 # Initiate Flask app
 if __name__ == "__main__":
